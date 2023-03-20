@@ -1,5 +1,6 @@
 package com.example.modulith.demomodulith.inventory;
 
+import com.example.modulith.demomodulith.order.OrderService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,9 +9,11 @@ import java.util.List;
 public class InventoryService {
 
     private final InventoryFakeRepo inventoryFakeRepo;
+    private final OrderService orderService;
 
-    public InventoryService(InventoryFakeRepo inventoryFakeRepo) {
+    public InventoryService(InventoryFakeRepo inventoryFakeRepo, OrderService orderService) {
         this.inventoryFakeRepo = inventoryFakeRepo;
+        this.orderService = orderService;
     }
 
     public List<Inventory> all() {
