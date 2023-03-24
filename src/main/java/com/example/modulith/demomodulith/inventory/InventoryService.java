@@ -1,6 +1,8 @@
 package com.example.modulith.demomodulith.inventory;
 
+import com.example.modulith.demomodulith.order.Order;
 import com.example.modulith.demomodulith.order.OrderService;
+import org.springframework.modulith.ApplicationModuleListener;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,5 +24,10 @@ public class InventoryService {
                 new Inventory("Ball", "Zurich"),
                 new Inventory("Cat", "Bale")
                 );
+    }
+
+    @ApplicationModuleListener
+    public void updateInventory(Order.OrderCompleted orderCompleted) {
+
     }
 }

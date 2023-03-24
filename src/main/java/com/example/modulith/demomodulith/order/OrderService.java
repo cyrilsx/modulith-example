@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class OrderService {
 
     private final OrderFakeRepo orderFakeRepo;
-    private InventoryService inventoryService;
+//    private InventoryService inventoryService;
 
     public OrderService(OrderFakeRepo orderFakeRepo) {
         this.orderFakeRepo = orderFakeRepo;
@@ -16,5 +16,9 @@ public class OrderService {
 
     boolean passOrder(Order order) {
         return true;
+    }
+
+    void completeOrder(Order order) {
+        this.orderFakeRepo.save(order.complete());
     }
 }
