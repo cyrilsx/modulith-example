@@ -12,13 +12,17 @@ class DemoModulithApplicationTests {
 
 	@Test
 	void contextLoads() {
+		applicationModules.forEach(System.out::println);
+
 		applicationModules.verify();
 	}
 
 	@Test
 	void writeDocumentationSnippets() {
+		var canvasOptions = Documenter.CanvasOptions.defaults();
+		var diagramOptions = Documenter.DiagramOptions.defaults().withStyle(Documenter.DiagramOptions.DiagramStyle.UML);
+
 		new Documenter(applicationModules)
-				.writeModulesAsPlantUml()
-				.writeIndividualModulesAsPlantUml();
+				.writeDocumentation(diagramOptions, canvasOptions);
 	}
 }
